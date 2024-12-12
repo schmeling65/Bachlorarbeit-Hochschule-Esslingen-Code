@@ -1,6 +1,6 @@
 # Playwright Tests zum Testen eines Studentenportals einer Hochschul-Website
 
-Die Tests überprüfen das Studentenprotal einer Hochschul-Website auf ihre Funktionalitäten und ihre Fehelranfälligkeit.
+Die Tests überprüfen das Studentenprotal einer Hochschul-Website auf ihre Funktionalitäten und ihre Fehleranfälligkeit.
 
 # Vorrausetzungen
 

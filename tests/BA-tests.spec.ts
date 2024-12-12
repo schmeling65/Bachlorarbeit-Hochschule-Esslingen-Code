@@ -90,8 +90,9 @@ Englisch-Deutsch umschaltung beachten
     .getByRole("link", { name: "HEonline" })
     .click();
   const page2 = await page2Promise;
-  await page2.getByRole("button", { name: "Login" }).nth(1).click();
-  await page2.waitForTimeout(3000);
+  //await page2.getByRole("button", { name: "Login" }).nth(1).click();
+  await page2.locator("#social-saml").click();
+  await page2.waitForTimeout(5000);
   const visible = await page2
     .getByRole("link", { name: "Dokumente   - Studierenden-" })
     .isVisible();
@@ -132,7 +133,8 @@ test("Accountinformationen abrufen", async ({ page }) => {
   const startTime = Date.now();
 
   await page.goto("https://heonline.hs-esslingen.de/");
-  await page.getByRole("button", { name: "Login" }).nth(1).click();
+  //await page.getByRole("button", { name: "Login" }).nth(1).click();
+  await page.locator("#social-saml").click();
   await page.getByLabel("Username").click();
   await page.getByLabel("Username").fill(process.env.loginname!.toString());
   await page.getByLabel("Username").press("Tab");
@@ -184,7 +186,8 @@ test("Bisher erhaltene Credits ablesen", async ({ page }) => {
   const startTime = Date.now();
 
   await page.goto("https://heonline.hs-esslingen.de/");
-  await page.getByRole("button", { name: "Login" }).nth(1).click();
+  //await page.getByRole("button", { name: "Login" }).nth(0).click();
+  await page.locator("#social-saml").click();
   await page.getByLabel("Username").click();
   await page.getByLabel("Username").fill(process.env.loginname!.toString());
   await page.getByLabel("Username").press("Tab");
@@ -240,7 +243,8 @@ test("Welche Module fehlen noch:", async ({ page }) => {
   const startTime = Date.now();
 
   await page.goto("https://heonline.hs-esslingen.de/");
-  await page.getByRole("button", { name: "Login" }).nth(1).click();
+  //await page.getByRole("button", { name: "Login" }).nth(1).click();
+  await page.locator("#social-saml").click();
   await page.getByLabel("Username").click();
   await page.getByLabel("Username").fill(process.env.loginname!.toString());
   await page.getByLabel("Username").press("Tab");
