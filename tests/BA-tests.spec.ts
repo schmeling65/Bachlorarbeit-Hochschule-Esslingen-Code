@@ -152,7 +152,7 @@ test("Accountinformationen abrufen", async ({ page }) => {
     await page.getByRole("button", { name: "Senden" }).click();
   } else {
   }
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(5000);
   const visible = await page
     .getByRole("link", { name: "Accountstatus   -" })
     .isVisible();
@@ -205,7 +205,7 @@ test("Bisher erhaltene Credits ablesen", async ({ page }) => {
     await page.getByRole("button", { name: "Senden" }).click();
   } else {
   }
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(5000);
   const visible = await page
     .getByRole("link", { name: "Mein Studium   - Studierende" })
     .isVisible();
@@ -232,6 +232,9 @@ test("Bisher erhaltene Credits ablesen", async ({ page }) => {
 
   await expect(crediterreicht).toBeDefined();
   await expect(creditsinsgesamt).toBeDefined();
+  await expect(parseInt(crediterreicht)).toBeGreaterThan(-1);
+  await expect(parseInt(creditsinsgesamt)).toBeGreaterThan(0);
+  await expect(parseInt(crediterreicht)).toBeLessThanOrEqual(parseInt(creditsinsgesamt));
   console.log(crediterreicht + " Credits erreicht von " + creditsinsgesamt);
 
   const endTime = Date.now();
@@ -262,7 +265,7 @@ test("Welche Module fehlen noch:", async ({ page }) => {
     await page.getByRole("button", { name: "Senden" }).click();
   } else {
   }
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(5000);
   const visible = await page
     .getByRole("link", { name: "Mein Studium   - Studierende" })
     .isVisible();
