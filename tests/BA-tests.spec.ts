@@ -278,6 +278,7 @@ test("Welche Module fehlen noch:", async ({ page }) => {
   }
 
   await page.waitForSelector(".cm-curriculum-headline");
+  await page.waitForTimeout(2000);
 
   let Abschnitte = await page.locator(".curriculum-element-card").all();
   let AbschnitteAnzahl = await Abschnitte.length;
